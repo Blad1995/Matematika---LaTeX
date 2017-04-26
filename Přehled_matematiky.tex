@@ -1,0 +1,356 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[unicode,colorlinks=true]{hyperref}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\textwidth 17.0cm \textheight 25.6cm
+\topmargin -2.0 cm
+\oddsidemargin 0cm
+\hoffset -0.5cm
+
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\begin{document}
+	\title{\vspace{-1.5cm}Přehled MB204}
+	\author{Jan Horáček; me@apophis.cz \\ Ondřej Divina; Ondra.Divina@seznam.cz}
+	\maketitle
+	
+	\section{Kongruence a kryptografie}
+	
+	\begin{enumerate}[leftmargin=*]
+		\item \textbf{Bezoutova věta}\\
+		$\forall a_1,a_2 \in  \mathbb{Z} $ existuje $gcd(a_1,a_2) \land \exists k_1,k_2 \in  \mathbb{Z} $ takové, že~platí:
+		\[(a_1,a_2) = k_1 \cdot a_1 + k_2 \cdot a_2\]
+		jejich nalezení lze provést přes Euklidův algoritmus.
+		
+		\item \textbf{Dokonalá čísla}\\
+		Čísla ve tvaru $\sigma(a) = 2a$, kde $\sigma(a)$ je součet dělitelů čísla $a$. Příkladem může být 6 nebo 28. 
+		Sudé dokonalé čísla jsou ve tvaru $2^{q-1}\cdot(p^q - 1)$, kde $(p^q - 1)$ je Mersenneho prvočíslo. Neví se, zda existuje liché dokonalé číslo.
+		
+		\item \textbf{Mersenneho prvočísla}\\
+		Prvočísla ve tvaru $2^k - 1$. Lze je jednoduše testovat pomocí Lucas-Lehmerova testu.
+		\begin{itemize}
+			\item  \textbf{Lucas-Lehmerův test}: posloupost $(s_n)_{n=0}^{\infty}$ kde $s_0 = 4; s_{n+1} = s_n^2 - 2$\\
+			$M_p = 2^p - 1 $ je prvočíslo $\Leftrightarrow M_p | s_{p-2}$
+		\end{itemize}
+		
+		\item \textbf{Počet prvočísel}\\
+		Euklidova věta říká, že\textit{ „Mezi $\mathbb{N}$ existuje $\infty$ mnoho prvočísel“.}\\
+		$\pi(x)$ udává počet prvočísel menších nebo rovných číslu $x \in \mathbb{R}$. \\
+		\[ \pi(x) \sim \frac{x}{\ln{x}} \]
+		Navíc \textbf{Čebyševova} (Betrandova) věta říká: \\\textit{„Pro libovolné číslo $n>1$ existuje alespoň jedno $p$ splňující $n<p<2n$“}
+		
+		%	\item Möbiova funkce.\\
+		%		Rozložme přirozené číslo $n$ na prvočísla: $n = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$.
+		%		Hodnotu Möbiovy funkce $\mu(n)$ definujeme rovnu $0$, pokud pro nekteré
+		%		$i$ platí $\alpha_i > 1$ a rovnu $(-1)^k$ v~opačném případě. Dále definujeme
+		%		$\mu(1) = 1$.
+		
+		\item \textbf{Eulerova funkce}
+		\[ \varphi(n) = |\{ a \in \mathbb{N} \mid 0 < a \le n, (a,n) = 1\}| \]
+		Eulerova funkce v~bodě $n$ je počet přirozených čísel v~intervalu
+		$\langle 1..n \rangle$, která jsou s~číslem~$n$ \textbf{nesoudělná }.
+		
+		$\varphi(1) = 1$, $\varphi(5) = 4$, $\varphi(6) = 2$, $\varphi(p) = p-1$.
+		
+		\[ \varphi(n) = n \cdot \left( 1 - \frac{1}{p_1} \right) \cdot
+		\left( 1 - \frac{1}{p_2} \right) \cdots \left( 1 - \frac{1}{p_k} \right) \]
+		
+		kde $n = p_1\cdot p_2  \cdots  p_n$
+		
+		Funkce $\varphi$ je multiplikativní pro nesoudělná $a$, $b$:
+		\[ \varphi(a \cdot b) = \varphi(a) \cdot \varphi(b). \]
+		\[ \varphi(p^\alpha) = p^\alpha - p^{\alpha-1} = (p - 1) \cdot p^{\alpha-1}\]
+		%		\[ \varphi(p_1^{\alpha_1} \cdots p_k^{\alpha_k}) = (p_1 - 1) \cdot
+		%			p_1^{\alpha_1-1} \cdots (p_k - 1) \cdot p_k^{\alpha_k-1} \]
+		%		\[ \varphi(n) = n \cdot \left( 1 - \frac{1}{q_1} \right) \cdots
+		%			\left( 1 - \frac{1}{q_k} \right) \]
+		
+		\item \textbf{Malá Fermatova věta}\\
+		Nechť $a \in \mathbb{Z}$, $p$ je prvočíslo a $p \nmid a$. Pak
+		\[ a^{p-1} \equiv 1 \pmod{p} \]
+		Věta poskytuje částečnou (= nezbytnou) podmínku prvočíselnosti.
+		
+		Napříkad pro \textit{Carmichaelova čísla} věta \textbf{platí}, ale přesto tato
+		čísla nejsou prvočísla.
+		
+		\item \textbf{Eulerova věta}\\
+		Nechť $a \in \mathbb{Z}$, $m \in \mathbb{N}$ a $(a,m) = 1$. Pak
+		\[ a^{\varphi(m)} \equiv 1 \pmod{m} \]
+		Je zobecněním Fermatovy věty.
+		
+		\item \textbf{Úplná soustava zbytků}\\
+		Úplná soustava zbytků modulo $m$ je libovolná $m$-tice čísel po dvou
+		nekongruentních modulo $m$. Nejčastěji $0, 1, \dots, m-1$, nebo
+		(pro lichá $m$) $-\frac{m-1}{2}, \dots, -1, 0, 1, \dots, \frac{m-1}{2}$.
+		
+		\item \textbf{Redukovaná soustava zbytků}\\
+		Redukovaná soustava zbytků modulo $m$ je libovolná $\varphi(m)$-tice
+		čísel nesoudělných s~$m$ a po dvou nekongruentních modulo $m$.
+		
+		\item \textbf{Řád čísla modulo $m$}\\
+		Nechť $a \in \mathbb{Z}$, $m \in \mathbb{N}$ a $(a,m) = 1$. Řádem čísla
+		\textit{a modulo m} rozumíme nejmenší přirozené číslo $n$ splňující:
+		\[ a^n \equiv 1 \pmod{m} \]
+		Z toho vyplývá, že řád $ n $ je nutně $ \leq \varphi(n) $\\
+		Pro  $a \in \mathbb{Z} \; \textnormal{řádu} $ řádu $ r$: \[ (a,n) = 1: a^t \equiv a^s \pmod{m} \Leftrightarrow t \equiv s \pmod{r} \] 
+		
+		\item \textbf{Primitivní kořen}\\
+		Nechť $m \in \mathbb{N}$. Celé číslo $g \in \mathbb{Z}$, $(g,m) = 1$
+		nezveme \textit{primitivním kořenem modulo m}, pokud je jeho řád modulo
+		$m$ roven $\varphi(m)$.
+		
+		Pro lichá prvočísla \textbf{existují} primitivní kořeny.
+		
+		Umocňováním primitivního kořene modulo $p$ dostaneme všechny prvky
+		\textbf{redukované} soustavy zbytků modulo $k$.
+		
+		\item \textbf{Wilsonova věta}\\
+		Udává nutnou i postačující podmínku prvočíselnosti.
+		
+		Přirozené číslo $n > 1$ je prvočíslo, právě když
+		\[ (n-1)! \equiv -1 \pmod{n}. \]
+		Výpočetně extrémně náročné $\rightarrow$ nepoužívá se
+		
+		\pagebreak
+		\item \textbf{Čínská zbytková věta}\\
+		Nechť $m_1, \ldots, m_k \in \mathbb{N}$ jsou po dvou nesoudělná a
+		$a_1, \ldots, a_k \in \mathbb{Z}$.
+		
+		Pak soustava
+		\begin{align*}
+		x &\equiv a_1 \pmod{m_1}\\
+		&\vdots\\
+		x &\equiv a_k \pmod{m_k}
+		\end{align*}
+		
+		má jediné řešení modulo $m_1 \cdot m_2 \cdots m_k$.
+		
+		\item \textbf{Binomické kongruence}
+		\[ x^n -a \equiv 0 \pmod{m} \]
+		
+		\begin{enumerate}
+			\item \textbf{Mocninné zbytky}\\
+			Nechť $m \in \mathbb{N}$, $a \in \mathbb{Z}$, $(a,m) = 1$. Číslo $a$
+			nazveme \textit{n-tým mocninným zbytkem modulo m}, pokud je kongruence
+			\[ x^n \equiv a \pmod{m} \]
+			řešitelná. V opačném případě nazveme $a$ \textit{n-tým mocninným
+				nezbytkem modulo m}.
+			
+			V~redukované soustavě zbytků modulo $m$ je \textbf{stejný} počet
+			kvadratických zbytků a nezbytků.
+			
+			\item \textbf{Existence řešení binomických kongruencí}\\
+			Buď $m \in \mathbb{N}$ takové, že modulo $m$ existují primitivní
+			kořeny.  Dále nechť $a \in \mathbb{Z}$, $(a,m) = 1$. Pak kongruence
+			$x^n \equiv a \pmod{m}$ je řešitelná (tj. $a$ je n-tý mocninný
+			zbytek modulo $m$), právě když
+			\[ a^{\varphi(m)/d} \equiv 1 \pmod{m} \]
+			kde $d = (n, \varphi(m))$ je zároveň počet řešení.
+		\end{enumerate}
+		
+		\item \textbf{Polynomiální kongruence}
+		\begin{enumerate}
+			\item \textbf{Henselovo lemma}\\
+			udává postup pro řešení kongruencí modulo mocnina
+			prvočísla.
+			
+			Nechť $p$ je prvočíslo, $f(x) \in \mathbb{Z}[x]$, $a \in
+			\mathbb{Z}$ je takové, že $p \mid f(a)$, $p \nmid f'(a)$. Pak
+			platí: pro každé $n \in \mathbb{N}$ má soustava
+			\begin{align*}
+			x &\equiv a \pmod{p}\\
+			f(x) &\equiv 0 \pmod{p^n}
+			\end{align*}
+			právě jedno řešení modulo $p^n$. Viz příklad 4/10.
+			
+			\item \textbf{Řešitelnost kvadratických kongruencí}\\
+			Podmínka řešitelnosti kongruence
+			\[ ax^2 + bx + c \equiv 0 \pmod{m} \]
+			je ekvivalentní podmínce řešitelnosti binomické kongruence
+			\[ x^2 \equiv a \pmod{p}. \]
+			
+			\item \textbf{Legendreův symbol}\\
+			Uvažujme kongruenci $x^2 \equiv a \pmod{p}$, která je řešitelná
+			$\Leftrightarrow$ $a$ je kvadratický zbytek mod $p$. Zda-li je
+			$a$ kv. zbytek určíme relativně snadno pomocí \textit{Legendreova
+				symbolu}.
+			Nechť $p$ je liché prvočíslo.
+			
+			\[ \genfrac(){}{0}{a}{p} = \left\{
+			\begin{array}{ll}
+			1 & p \nmid a, a \text{ je kvadratický zbytek modulo } p \\
+			0 & p \mid a \\
+			-1& p \nmid a, a \text{ je kvadratický nezbytek modulo } p
+			\end{array}
+			\right. \]
+			
+			Nechť $p$ je liché prvočíslo a $a, b \in \mathbb{Z}$ jsou libovolná.
+			Pak platí:
+			
+			\begin{enumerate}
+				\item $\genfrac(){}{1}{a}{p} \equiv  a^{\frac{p-1}{2}} \pmod{p},$
+				\item $\genfrac(){}{1}{ab}{p} = \genfrac(){}{1}{a}{p} \cdot
+				\genfrac(){}{1}{b}{p},$
+				\item $a \equiv b \pmod{p} \Rightarrow \genfrac(){}{1}{a}{p}
+				= \genfrac(){}{1}{b}{p}.$
+			\end{enumerate}
+			
+			\item \textbf{Kvadratická reciprocita po Legendreův symbol}\\
+			Nechť $p$, $q$ jsou lichá prvočísla. Pak:
+			
+			\begin{enumerate}
+				\item $\genfrac(){}{1}{-1}{p} = (-1)^{\frac{p-1}{2}} \Leftrightarrow$
+				$-1$ je kvadratický zbytek $\Leftrightarrow p \equiv 1 \pmod{4}$.
+				\item $\genfrac(){}{1}{2}{p} = (-1)^{\frac{p^2-1}{8}} \Leftrightarrow$
+				$2$ je kvadratický zbytek $\Leftrightarrow p \equiv \pm 1
+				\pmod{8}$.
+				\item $\genfrac(){}{1}{q}{p} = \genfrac(){}{1}{p}{q} \cdot
+				(-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}} \Leftrightarrow$
+				znaménko se nemění $\Leftrightarrow p \equiv 1 \vee
+				q \equiv 1 \pmod{4}$.
+			\end{enumerate}
+			
+			
+			\item \textbf{Jacobiho symbol}\\
+			Legendre platí jen pro lichá prvočísla.  Tento problém řešíme zavedením \textit{Jacobiho
+				symbolu}.
+			
+			Nechť $a \in \mathbb{Z}$, $b \in \mathbb{N}$, $2 \nmid b$. Nechť
+			$b = p_1 \cdot p_2 \cdots p_k$ je rozklad čísla $b$ na (lichá)
+			prvočísla (neskupujeme stejná prvočísla do mocniny!). Symbol
+			\[ \genfrac(){}{0}{a}{b} = \genfrac(){}{0}{a}{p_1} \cdot
+			\genfrac(){}{0}{a}{p_2} \cdots \genfrac(){}{0}{a}{p_k} \]
+			
+			se nazývá \textit{Jacobiho symbol}.
+			
+			Pozor: pro \textit{Jacobiho symbol} neplatí implikace
+			\[ (a/b) = 1 \Rightarrow x^2 \equiv a \pmod{b} \text{ je řešitelná.} \]
+			
+			Kvadratická reciprocita stejná jako pro \textit{Legendreův symbol}.
+			
+			\item \textbf{Gaussovo lemma}\\
+			Pomocí funkce $\mu$ lze snadno spočítat hodnotu \textit{Legendreova
+				symbolu}.
+			
+			\[ \genfrac(){}{0}{a}{p} = (-1)^{\mu(a)} \]
+			
+			$\mu(a)$ je počet záporných prvků $s$, pro které platí.
+			
+			\centering 
+			$S = \left\{1, 2, \dots, \frac{p-1}{2}\right\}$,
+			$\forall x \in S : a \cdot x \equiv \pm s \in S$. 
+			
+		\end{enumerate}
+		
+		
+		
+		\pagebreak	
+		\item \textbf{Sifrovací systémy (algoritmy)}
+		\begin{enumerate}
+			\item \textbf{Rabinův kryptosystém}\\
+			Dokázáno, že je k prolomení potřeba faktorizovat modul. (první, u~kterého to bylo dokázáno).
+			
+			\begin{enumerate}
+				\item $p,q \equiv 3 \pmod{4}$
+				\item $n = p \cdot q$
+				\item $V_A = n~;~S_A = (p,q)$
+				\item Zašifrování zprávy: $C \equiv M^2 \pmod{n}$
+				\item Dešifrování jako výpočet 4 odmocnin z $C \pmod{n}$. Jedna z nich je původní zprávou
+			\end{enumerate}
+			
+			\item \textbf{RSA}\\
+			Těžké naprogramovat bez postranních kanálů. Bezpečnost je zaručena při použití velkého $d$ a zároveň $ p$ a $q$ si nesmí být příliš blízká.
+			\begin{enumerate}
+				\item Zvolí se velké prvočísla $p,q$
+				\item $n = p \cdot q~;~ \varphi(n) = (p-1)\cdot(q-1)$
+				\item Zvolí se libovolný veřejný klíč $e$, pro který platí $(e,\varphi(n)) = 1$
+				\item Spočítá se \textbf {tajný klíč}  $d$ tak, že $e\cdot d \equiv 1 \pmod{\varphi(n)}$
+				\item \textbf{Šifrování:} $M \rightarrow C=C_e(M) \equiv M^e \pmod{n}$
+				\item \textbf{Dešifrování}  (C je šifrovaný text): $C^d \pmod{n} = (M^e)^d \equiv M \pmod{n}$
+			\end{enumerate}
+			
+			
+			\item \textbf{Diffie-Hellman výměna klíčů}\\
+			Výměna klíčů pro symetrickou kryptografii. Založeno na problému \textbf{diskrétního~logaritmu} (DLP). potřeba \textbf{autentizace} (\textit{man in the middle attack})
+			\begin{enumerate}
+				\item Veřejně se strany dohodnou na \textbf{prvočísle} a primitivním kořenu $g \pmod{p}$
+				\item Alice vybere $a$ a pošle $g^a \pmod{p}$~;~Bob vybere $b$ a pošle $g^b \pmod{p}$
+				\item Společným klíčem je $g^{ab} \pmod{p}$
+			\end{enumerate}
+			
+			
+			\item \textbf{ElGamal}\\
+			Podobný Diffie-Hellman. Lze použít i na podepisování (jako RSA).
+			\begin{enumerate}
+				\item Alice zvolí prvočíslo $p$ a primitivní kořen $g$
+				\item Alice zvolí \textbf{tajný klíč} $x$, spočítá $h=g^x \pmod{p}$~;~ $V_A = (p,g,h)$
+				\item Bob zvolí $y$ a vypočte $C_1 = g^y \pmod{p}$ a $C_2 = M \cdot h^y \pmod{p}$;~a~pošle $ (C_1,C_2)$
+				\item Dešifrování: $M =\frac{C_2}{(C_1)^x}$;~kde $C_1^x = h^y =g^{xy}$
+			\end{enumerate}
+		\end{enumerate}
+		
+	\end{enumerate}
+	
+	\pagebreak
+	\section{Algebra - Teorie grup}
+	
+	\begin{enumerate}
+		\item \textbf{Struktury s jednou operací}\\
+		\begin{enumerate}
+			\item Grupoid - uzavřená na binární operaci $\cdot$
+			\item Pologrupa - asociativní 
+			\item Monoid - pologrupa s neutrálním prvkem
+			\item Grupa - monoid, který obsahuje inverzi pro každý prvek
+			\item Komutativní (cokoliv) - operace $\cdot $ je komutativní
+		\end{enumerate}
+		
+		\item \textbf{Parita permutace}\\
+		Každý permutace (konečné) množiny je složením cyklů. Cyklus délky $l$ lze složit z $l-1$ transpozic. $\rightarrow$ Parita cyklu délky $l$ je $(-1)^{l-1}$\\
+		Parita složení permutací je součinem parit jednotlivých z nich. Tzn. zobrazení $sgn$ převádí permutaci $\sigma \circ \pi$ na součin  sgn $\sigma$ $ \cdot$ sgn $\pi$	
+		
+		\item \textbf{Dihedrální grupy}\\
+		Grupy symetrií s $k$ různýmmi rotacemi a $k$ různými zrcadleními. Např. pravidelný k-úhelník. Označují se jako $D_{2k}$. Grupy řádu 2k (někdy jenom D(k)). Pro $k  \geq 3$
+		
+		\item \textbf{Cyklické grupy}\\
+		Obrazce, které mají pouze rotační symetrie se (např v chemii) značí $C_k$. Cyklické grupy řádu $k$.
+		Necht’ je M ohraničená množina v rovině $\Re^2$. Pak grupa jejich symetrií je bud’ triviální nebo jedna z grup $C_k , D_{2k} $, kde$~k \geq 1$.
+		\item \textbf{Pologrupy a podpologrupy}\\
+		Je-li $(A,\cdot)$ grupa (pologrupa), pak její podmnožina uzavřená na zúžení operace $\cdot$ a zároveň je s touto operací \textbf{podgrupou} (podpologrupou).
+		
+		\item \textbf{Homomorfismus}\\
+		Zobrazení 	$f~:~(G,\cdot) \rightarrow (H,\circ)$ mezi dvěma grupami se nazývá  \textbf{Homomorfismus grup}, pokud respektuje násobení tak, že $\forall a,b \in G;~ f(a\cdot b) = f(a) \circ f(b)$ \\Bijektivní homomorfismus se nazývá \textbf{Izomorfismus}. Značíme $G \cong H$ \\ \textit{Pro každý homomorfismus $f:~G \rightarrow H$ platí:}
+		\begin{enumerate}
+			\item Obraz neutrálního prvku $e_G \in G$ je neutrální prvek v H.
+			\item Obraz inverze k prvku je inverzí obrazu. Tj. $f(a^{-1}) = f^{-1}(a)$
+			\item Obraz podgrupy $K \subset G$ je podgrupa $f(K) \subset H$
+			\item Vzorem $f^{-1}(K) \subset G pogrupy K \subset H$ je podgrupa.
+			\item Je-li f zároveň bijekcí, pak i inverzní zobrazení $f^{-1}$ je homomorfismus
+			\item f je injektivní zobrazení $\Leftrightarrow f^{-1}(e_H)= \{e_G\}$
+		\end{enumerate}
+		Podgrupa, která je vzorem jednotkového prvku $e \in H$ se nazývá \textbf{jádro} homomorfismu $f$ a značíme ji $ker f$
+		
+		\item \textbf{(Přímý) součin grup}\\
+		Pro každé dvě grupy $(G,\cdot), (H,\circ)$ definujeme \textbf{součin grup} $(G \times H, \star)$ takto:\\ $G \times H$ je kartézský osučin, kde grupové násobení je definováno po složkách
+		$(a,x) \star (b,y) = (a \cdot b, x \circ y)$
+		\begin{enumerate}
+			\item \textit{Cyklické grupy} \\
+			Libovolný prvek \textit{a} v grupě  G je obsažen v minimální podgrupě\\ $\{e = a^0, a = a^1, a^2, \dots\}$, která jej obsahuje. Nutně je tato podgrupa \textbf{komutativní} a musí nastat případ $a^k = e$
+			Nejmenší takové $k$ se nazývá \textbf{řád prvku} $a$ v G\\ Grupa G je \textbf{cyklická}, je-li celé G generované nějakým svým prvkem $a$ výše uvedeným způsobem.\\ 
+			Pozn.: Každá cyklická grupa je izomorfní buď $\mathbb{Z}$ pokud je nekonečná a nebo některé grupě zbytkových tříd $(\mathbb{Z}_k,+)$
+		\end{enumerate}
+		
+		
+		
+	\end{enumerate}
+	
+	
+\end{document}
