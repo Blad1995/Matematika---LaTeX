@@ -638,11 +638,19 @@
 					\[\frac{a}{b}+\frac{c}{d} = \frac{ad + bc}{bd}  \]
 					\[ \frac{a}{b}\frac{c}{d} = \frac{ac}{bd}\]
 					$\frac{0}{1}$ je neutrální prvek vzhledem ke sčítání, $\frac{1}{1}$ je neutrální vzhledem k násobení.\\
-					Pro $a \neq 0 \land b \neq 0$ platí $\frac{a}{b} \cdot \frac{b}{a} = \frac{1}{1}$
-		\subsection{Kódování}
-		
-		
-	
+					Pro $a \neq 0 \land b \neq 0$ platí $\frac{a}{b} \cdot \frac{b}{a} = \frac{1}{1}$	
+	\end{enumerate}
+
+	\subsection{Kódování}
+		Zpráva je tvořena prvky $\mathbb{Z}_2$ a přenášíme slovo o $k$ bitech. Přidáváme $n-k$ bitů pro $n > k$\\
+		Slov o $k$ bitech je $2^k$ a každé z nich určuje jedno \textbf{kódové slovo} z $2^n$ možných.\\
+		Máme tedy ještě $2^n-2^k = 2^k(2^{n-k}-1)$\\
+		Příklad: \textbf{kód kontrolující paritu}. Přidáním prvního bitu kontrolujeme dodržení sudého počet jedniček
+	\begin{enumerate}
+		\item \textbf{Hammingova vzdálenost} dvou slov je rovna počtu bitů, ve kterých se liší\\
+			Kód odhaluje $r$ a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $r+1$\\
+			Kód opravuje r a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $2r+1$
+			
 	\end{enumerate}
 	
 	
