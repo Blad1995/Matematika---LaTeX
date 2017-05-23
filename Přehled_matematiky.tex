@@ -539,10 +539,25 @@
 	 	\item Jestliže v komutativním okruhuh R platí c $\cdot$ d = 0 právě, když je alespoň jeden z prvků c a d nulový, pak okruh R nazýváme \textbf{oborem integrity}.
 	 	
 	 	\item Platí-li v oboru integrity $a=b\cdot c$ a $b\neq0$, pak $c$ je jednoznačně dáno volbou $a,b$.
+	 	
+		\item Každý konečný obor integrity je těleso.	 	
 	\end{enumerate}
+\end{enumerate}
 	
-	\item \textbf{Polynomy}
-		\begin{enumerate}
+
+	\subsection{Polynomy}
+	\begin{enumerate}
+      \item Nechť $R$ je jakýkoliv komutativní okruh skalárů. Polynomem nad $R$ rozumíme konečný výraz
+      \[f(x)=\sum_{i=0}^{k}a_ix^i\] kde $a_i \in R, i=0,1,\cdots,k$ jsou tzv. \textbf{koeficienty polynomu}. Je-li $a_k\neq0$, říkáme, že $f(x)$ má \textbf{stupeň} k, píšeme deg f = k. Nulový polynom nemá stupeň, polynomy stupně nula jsou právě nenulové prvky v $R$, kterým říkáme konstantní polynomy.
+
+      \item Polynomy f(x) a g(x) jsou stejné, jestliže mají stejné koeficienty. Množinu všech polynomů nad okruhem $R$ budeme značit $R[x]$.\\Každý polynom zadává zobrazení (\textbf{polynomiální funkci}) $f:R\rightarrow R$, jehož hodnota vznikne dosazením hodnoty c za nezávislou proměnnou x, tj. $f(x)=a_0+a_1c+\cdots+a_kc^k$.
+
+      \item \textbf{Kořen polynomu} $f(x)$ je takový prvek $c\in R$, pro který je $f(x) = 0\in R$.
+
+      \item Jestliže je R nekonečný okruh, pak dva polynomy f(x) a g(x) nad R jsou stejné právě když jsou stejná příslušná zobrazení f a g.
+
+      \item Okruh polynomů nad oborem integrity je opět obor integrity.
+      
 			\item Věta o dělení se zbytkem\\
 				V oboru integrity R máme polynomy $f, g \in R[x] $ kde $g \neq 0$. Pak $\exists a \in R, a \neq 0$ a polynomy $q, r$ splňující $af=qg+r$, kde r = 0 nebo $deg~r < deg~g$ \\Je-li navíc R těleso nebo je $LC(g)  = 1$ pak lze volit $a=1$ a polynomy $q,r$ jsou určeny jednoznačně.\\Důkaz indukcí podle stupně $f$
 			
@@ -582,13 +597,33 @@
 					Libovolný symetrický polynom lze vyjádřit jako polynom v proměnných $s_1,\dots,s_n$
 				\item \textbf{Multiindex}\\
 					Multiindex $\alpha$ délky $r$ je  $r-tice$ nezáporných celých čísel $(\alpha_1,\dots,\alpha_r)$.\\ Celé číslo $|\alpha| = \alpha_1+\dots+\alpha_r$ nazýváme \textbf{velikost multiindexu}.\\Místo $x_1^{\alpha_1}x_2^{\alpha_2} \dots x_r^{\alpha_r}$ píšeme $x^\alpha$
-				
-		\end{enumerate}
-	
-	
-	
+			
+		\item Nechť R je okruh skalárů. \textbf{Formální mocninou řadou} nad R rozumíme (obecně nekonečný) formální výraz $f(x) = \sum_{i=0}^{\infty}a_ix^i$, kde $a_i \in R, i=0,1,\cdots,$jsou tzv. koeficienty řady.
 		
+		\item \textbf{Okruhy polynomů} v proměnných $x_1,\cdots,x_r$ definujeme induktivně vztahem 
+		\[R[x_1,\cdots,x_r]:=R[x_1,\cdots,x_{r-1}][x_r]\]. 
 		
+		\item Jetliže v okruhu R nejsou dělitelé nuly, pak také v okruhu polynomů $R[x_1,\cdots,x_r]$ nejsou dělitelé nuly.
+		
+		\item Nad oborem integrity R platí:
+			\begin{enumerate}
+				\item je-li $a|b$ a zároveň $b|c$, pak také $a|c$
+				\item $a|b$ a zároveň $a|c$, pak také $a|(\alpha b +\beta c)$ pro všechny $\alpha,\beta \in R$
+				\item $a|0$ pro všechny $a\in R$ (je totiž $a\cdot0=0$)
+				\item každý prvek $a \in R$ je dělitelný všemi jednotkami $e\in R^x$ a jejich násobky $a\cdot e$ (jak přímo plyne z $a=a\cdot e\cdot e^{-1}$)
+			\end{enumerate}
+		
+		\item Řekneme, že prvek $a\in R$ je \textbf{ireducibilní} (nerozložitelný), jestliže
+			\begin{enumerate}
+				\item je nenulový a není jednotkou (tj. $a\nmid 1$)
+				\item je dělitelný pouze jednotkami $e\in R^x$ a čísly $a\cdot e$ (tzv. čísla asociovaná s a - tj. taková b že $a|b$ a $b|a$, $a\thicksim b$).
+			\end{enumerate}
+		
+		\item Řekneme, že okruh R je \textbf{obor integrity s jednoznačným rozkladem}, jestliže platí:
+			\begin{enumerate}
+				\item pro každý nenulový prvek $a\in R$, který není jednotkou, existují nerozložitelné $a_1,\cdots,a_r \in R$ takové, že $a=a_1\cdot a_2 \cdots a_r$
+				\item jsou-li prvky $a_1,\cdots,a_r$ a $b_1,\cdots,b_s$ ireducibilní, nejsou mezi nimi žádné jednotky a platí-li $a_1a_2\cdots a_r=b_1b_2\cdots b_s$, pak je $r=s$ a ve vhodném přeuspořádání platí $a_j=e_jb_j$ pro vhodné jednotky $e_j$ (tj. tyto dva rozklady jsou stejné až na pořadí a asociovanost činitelů).
+			\end{enumerate}
 	\end{enumerate}
 	
 	
