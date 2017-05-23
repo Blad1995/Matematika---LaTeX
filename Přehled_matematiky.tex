@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[unicode,colorlinks=true]{hyperref}
-\usepackage[czech]{babel}
+%\usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -558,7 +558,9 @@
 
       \item Okruh polynomů nad oborem integrity je opět obor integrity.
       
-      	\item Nechť R je okruh skalárů. \textbf{Formální mocninou řadou} nad R rozumíme (obecně nekonečný) formální výraz $f(x) = \sum_{i=0}^{\infty}a_ix^i$, kde $a_i \in R, i=0,1,\cdots,$jsou tzv. koeficienty řady.
+
+      \item Nechť R je okruh skalárů. \textbf{Formální mocninou řadou} nad R rozumíme (obecně nekonečný) formální výraz $f(x) = \sum_{i=0}^{\infty}a_ix^i$, kde $a_i \in R, i=0,1,\cdots,$jsou tzv. koeficienty řady.
+
       
       \item \textbf{Okruhy polynomů} v proměnných $x_1,\cdots,x_r$ definujeme induktivně vztahem 
       \[R[x_1,\cdots,x_r]:=R[x_1,\cdots,x_{r-1}][x_r]\]. 
@@ -582,7 +584,9 @@
       \item Řekneme, že okruh R je \textbf{obor integrity s jednoznačným rozkladem}, jestliže platí:
       \begin{enumerate}
       	\item pro každý nenulový prvek $a\in R$, který není jednotkou, existují nerozložitelné $a_1,\cdots,a_r \in R$ takové, že $a=a_1\cdot a_2 \cdots a_r$
-      	\item jsou-li prvky $a_1,\cdots,a_r$ a $b_1,\cdots,b_s$ ireducibilní, nejsou mezi nimi žádné jednotky a platí-li $a_1a_2\cdots a_r=b_1b_2\cdots b_s$, pak je $r=s$ a ve vhodném přeuspořádání platí $a_j=e_jb_j$ pro vhodné jednotky $e_j$ (tj. tyto dva rozklady jsou stejné až na pořadí a asociovanost činitelů).
+
+      \item jsou-li prvky $a_1,\cdots,a_r$ a $b_1,\cdots,b_s$ ireducibilní, nejsou mezi nimi žádné jednotky a platí-li $a_1a_2\cdots a_r=b_1b_2\cdots b_s$, pak je $r=s$ a ve vhodném přeuspořádání platí $a_j=e_jb_j$ pro vhodné jednotky $e_j$ (tj. tyto dva rozklady jsou stejné až na pořadí a asociovanost činitelů).  
+
       \end{enumerate}
       
 			\item Věta o dělení se zbytkem\\
@@ -651,6 +655,13 @@
 			Kód odhaluje $r$ a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $r+1$\\
 			Kód opravuje r a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $2r+1$
 			
+
+		
+		%--------------------------10 prezentace ----------------------
+		
+		\item Buď dáno nekonečná posloupnost $a=(a_0,a_1,a_2,\cdots)$.Její \textbf{vytvořující funkcí} rozumíme (formální) mocninnou řadu tvaru $\sum_{i=0}^{\infty}a_ix^i=a_0+a_1x+a_2x^2+\cdots$.
+		\vspace{4mm}
+		Buď $(a_0,a_1,a_2,\cdots)$ posloupnost reálných čísel. Platí-li pro nějaké $K \in \mathbb{R}$, že pro všechna n $\geq$ 1 je $|a_n|\leq K^n$, pak řada \[a(x)=\sum_{n\geq0}a_nx^n\] konverguje pro každé $x\in(-\frac{1}{K},\frac{1}{K})$. Součet této řady tedy definuje fuknci na uvedeném intervalu, tuto funkci označujeme rovněž $a(x)$. Hodnotami funkce a(x) na libovolném okolí 0 je jednoznačně určena původní posloupnost, neboť má a(x) v 0 derivace všech řádů a platí $a_n = \frac{a^{(n)}(0)}{n!}$
 	\end{enumerate}
 	
 	
