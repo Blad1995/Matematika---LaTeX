@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[unicode,colorlinks=true]{hyperref}
-%\usepackage[czech]{babel}
+\usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -20,7 +20,7 @@
 
 \begin{document}
 	\title{\vspace{-1.5cm}Přehled MB204}
-	\author{Jan Horáček; me@apophis.cz \\ Ondřej Divina; Ondra.Divina@seznam.cz}
+	\author{Jan Horáček; me@apophis.cz \\ Ondřej Divina; Ondra.Divina@seznam.cz\\Štěpánka Gennertová}
 	\maketitle
 	
 	\section{Kongruence a kryptografie}
@@ -347,6 +347,104 @@
 			Nejmenší takové $k$ se nazývá \textbf{řád prvku} $a$ v G\\ Grupa G je \textbf{cyklická}, je-li celé G generované nějakým svým prvkem $a$ výše uvedeným způsobem.\\ 
 			Pozn.: Každá cyklická grupa je izomorfní buď $\mathbb{Z}$ pokud je nekonečná a nebo některé grupě zbytkových tříd $(\mathbb{Z}_k,+)$
 		\end{enumerate}
+			
+		\item \textbf{Levé a pravé třídy rozkladu} \\
+		Celá grupa G se rozpadá na tzv. \textbf{levé třídy rozkladu} podle podgrupy H vzájemně ekvivalenstních prvků.  Pro třídy příslušející prvku (značíme a $\cdot H$) platí: $a \cdot H = \{a \cdot h; h \in H\}$. G/H - množina všech levých tříd rozkladu podle podgrupy H
+		Obdobně definujeme $H \cdot a$ jako pravou třídu rozkladu, $H \backslash G = \{H \cdot a; a \in G\}$.
+		
+		\begin{enumerate}
+			\item Levé a pravé třídy rozkladu podle podgrupy H $\leq$ G plývají právě tehdy, když pro každé $a \in G, h \in H$ platí $a \cdot h \cdot a^{-1} \in H$.
+			\item Všechny třídy (levé i pravé) mají shodnou mohutnost jako podgrupa H.
+			\item Zobrazení $a \cdot H \mapsto H \cdot a^{-1}$ zadává bijekci mezi levými a pravými třídami rozkladu G podle H.
+		\end{enumerate}
+		
+		\item \textbf{Podgrupy}
+		Nechť G je konečná grupa s n prvky (G je řádu n), H její \textbf{podgrupa}.
+		\begin{enumerate}
+			\item Mohhutnost n = |G| je součinem mohutnosti H a mohutnosti G/H. |G| = |G/H|.|H|.
+			\item Přirozené číslo |H| je dělitelem čísla n.
+			\item Je-li a $\in$ G prvek řádu k, pak k dělí n.
+			\item Pro každé a $\in$ G je $a^n = e$.
+			\item Je-li mohuntost grupy G prvočíslo p, pak je G izomorfní cyklické grupě $\mathbb{Z}_p$. 
+		\end{enumerate}
+		
+		\textbf{Podgrupa H je normální} právě tehdy, když pro každé $a \in G$ ptatí $a\cdot H = H\cdot a$ (levý rozklad G podle podgrupy H je shodný s pravým rozkladem).
+		\begin{enumerate}
+			\item 1 $\lhd$ G, G $\lhd$ G
+			\item V komutativní grupě je každá podgrupa normální.
+			\item Je-li H podgrupa konečné grupy G, kde $|H|=|G|/2$, pak je H normální.
+		\end{enumerate}
+		
+		\item \textbf{Hlavní věta konečných komutativních grup}
+		Je-li G konečná komutativní grupa, pak platí: $G\cong \mathbb{Z}_{n1} \times \mathbb{Z}_{n1}\cdots\times\mathbb{Z}_{nk}$, pro vhodná $n_1,\cdots,n_k\in\mathbb{N}\backslash\{1\}$ splňující $n_{i+1}|n_i$ pro $1 \leq i \leq k-1$. Tento rozklad je přitom jednoznačný.
+		\begin{enumerate}
+			\item Každé provočíslo p, dělící řád grupy G, dělí $n_1$.
+			\item Je-li n součinem různých prvočísel, pak jedinou cyklickou komutativní grupou řádu n je (až na isomorfismus) cyklická grupa $\mathbb{Z}_n$.
+		\end{enumerate}
+		
+		\textbf{Cauchyho věta} \\
+		Je-li konečná grupa G řádu dělitelného prvočíslem p, pak obsahuje prvek řádu p.\\ \\
+		\textbf{Sylowova věta} \\
+		Konečná grupa G řádu p$^\alpha$m (p je prvočíslo, p $\nmid$ m) má vždy podgrupu řádu p$^\alpha$. Pro počet n$_p$ takových podgrup platí n$_p \equiv 1 (mod p)$ a n$_p$ | m. 
+		
+		\item \textbf{Jordan-Hölderova věta a kompoziční řada} \\
+		Posloupnost podgrup grupy G $\{e\} = N_0 \leq N_1 \leq \cdots \leq N_k = G$ se nazývá kompoziční řada, pokud $N_i \lhd N_{i+1} a N_{i1+}/N_i$ je prostá.  \\Konečná grupa má vždy kompoziční řadu, která je jednoznačně určená až na izomorfismus faktorů (tj. počet členů dvou takových řad je stejný a příslušné faktorgrupy jsou izomorfní).
+		
+		\item \textbf{Věty o izomorfismu} \\
+		Pro libovolný homomorfismus grup f : G $\rightarrow$ K je dobře definován také homomorfismus $\tilde{f} : G/ker f \rightarrow K, \tilde{f}(a \cdot ker f) = f(a)$, který je injektivní. Zejména dostáváme $G/ker f \cong$ f(G). \\
+		
+		Nechť A, B $\leq$ G jsou podgrupy splňující $A \leq N_G(B)$. Pak (A $\cap$ B) $\lhd$ A a platí AB/B $\cong$ A/(A $\cup$ B). \\
+	
+		Nechť je $N \ \lhd\ G$. Pak existuje bijekce mezi množinou podgrup A obsahujících N a množinou podgrup A/N. Navíc normálním podgrupám odpovídají normální podgrupy.
+		
+		\item \textbf{Akce grupy}
+		
+		\begin{enumerate}
+			\item \textbf{Levá akce grupy} G na množině X je homomorfismus grupy G do podgrupy invertibilních prvků v podgrupě X$^X$ všech zobrazení X $\rightarrow$ X, které splňuje 
+			\begin{align*}
+			\varphi(a\cdot b,x) = \varphi(a,\varphi(b,x)).\	\ \ \ \	(a\cdot b)\cdot x = a\cdot (b\cdot x)
+			\end{align*} 
+			
+
+			\item Obraz prvku x $\in$ X v akci celé grupy G nazýváme \textbf{orbita} X$_X$ prvku x, tj.
+			\begin{align*}
+			X_X = \{y = \varphi(a,x); a\in G\}.
+			\end{align*} 
+			
+			\item Pro každý bod x$\in$X definujeme \textbf{izotropní podgrupu} (též stabilizátor) $G_X \subseteq G$ akce $\varphi$:
+			\begin{align*}
+			G_X = \{a \in G;\ \varphi(a,x) =x\}.
+			\end{align*}
+			\item 
+			Jestliže pro každé dva prvky x, y $\in$ X existuje a $\in$ G tak, že $\varphi$(a,x) = y, pak říkáme, že akce $\varphi$ je \textbf{tranzitivní}. \\
+			např. Přirozenou akci na množině levých tříd G/H pro jakoukoliv podgrupu H definujeme vztahem $g\cdot (aH) = (ga) H$.
+			
+			\item Pro každou akci koknečné grupy G na konečné množině X platí:
+			\begin{enumerate}
+				\item pro každý prvek x $\in$ X je $|G| = |G_X|\cdot |X_X|$,
+				\item (Burnsideovo lemma) je-li N počet orbit akce G na X, pak $|G| = \frac{1}{N}\sum_{g\in G}|X^g|$, kde $X^g = \{x \in X; g\cdot x = x\}$ označujeme množinu pevných bodů akce prvku g.
+			\end{enumerate}
+		\end{enumerate}
+
+		\item \textbf{Okruhy a tělesa}
+		\begin{enumerate}
+			\item Komutativní grupa (R,+) s neutrálním prvkem 0 $\in$ R, spolu s další operací $\cdot$ splňující
+			 \begin{enumerate}
+				\item (a $\cdot$ b) $\cdot$ c = a $\cdot$ (b $\cdot$ c), pro všchna a, b, c $\in$ R (asociativita)
+				\item a $\cdot$ b = b $\cdot$ a pro všechna a, b $\in$ R (komutativita)
+				\item existuje prvek 1 takový, že pro všechny a $\in$ R platí 1 $\cdot$ a = a (existence jedničky)
+				\item a $\cdot$ (b + c) = a $\cdot$ b + a $\cdot$ c, pro všechny a, b, c $\in$ R (distributivita)
+			 \end{enumerate}
+			se nazývá \textbf{komutativní okruh}. Takový okruh zapisujeme (R, +,$\cdot$).
+			
+			\item Jestliže v komutativním okruhuh R platí c $\cdot$ d = 0 právě, když je alespoň jeden z prvků c a d nulový, pak okruh R nazýváme \textbf{oborem integrity}.
+			
+	 	%konec prezentace 8.tyden str 14 (17)
+	\end{enumerate}
+	
+		
+		Jsou-li $A, B \lhd G$ normální podgrupy splňující $A \leq B$, pak $B/A \lhd G/A$ a platí $(G/A)/(B/A) \cong G/B$.
+		
 		
 		\item \textbf{Levé a pravé třídy rozkladu} \\
 		Celá grupa G se rozpadá na tzv. \textbf{levé třídy rozkladu} podle podgrupy H vzájemně ekvivalenstních prvků.  Pro třídy příslušející prvku (značíme a $\cdot H$) platí: $a \cdot H = \{a \cdot h; h \in H\}$. G/H - množina všech levých tříd rozkladu podle podgrupy H
@@ -446,19 +544,60 @@
 	\end{enumerate}
 \end{enumerate}
 	
+
 	\subsection{Polynomy}
 	\begin{enumerate}
-		\item Nechť $R$ je jakýkoliv komutativní okruh skalárů. Polynomem nad $R$ rozumíme konečný výraz
-		\[f(x)=\sum_{i=0}^{k}a_ix^i\] kde $a_i \in R, i=0,1,\cdots,k$ jsou tzv. \textbf{koeficienty polynomu}. Je-li $a_k\neq0$, říkáme, že $f(x)$ má \textbf{stupeň} k, píšeme deg f = k. Nulový polynom nemá stupeň, polynomy stupně nula jsou právě nenulové prvky v $R$, kterým říkáme konstantní polynomy.
-		
-		\item Polynomy f(x) a g(x) jsou stejné, jestliže mají stejné koeficienty. Množinu všech polynomů nad okruhem $R$ budeme značit $R[x]$.\\Každý polynom zadává zobrazení (\textbf{polynomiální funkci}) $f:R\rightarrow R$, jehož hodnota vznikne dosazením hodnoty c za nezávislou proměnnou x, tj. $f(x)=a_0+a_1c+\cdots+a_kc^k$.
-		
-		\item \textbf{Kořen polynomu} $f(x)$ je takový prvek $c\in R$, pro který je $f(x) = 0\in R$.
-		
-		\item Jestliže je R nekonečný okruh, pak dva polynomy f(x) a g(x) nad R jsou stejné právě když jsou stejná příslušná zobrazení f a g.
-		
-		\item Okruh polynomů nad oborem integrity je opět obor integrity.
-		
+      \item Nechť $R$ je jakýkoliv komutativní okruh skalárů. Polynomem nad $R$ rozumíme konečný výraz
+      \[f(x)=\sum_{i=0}^{k}a_ix^i\] kde $a_i \in R, i=0,1,\cdots,k$ jsou tzv. \textbf{koeficienty polynomu}. Je-li $a_k\neq0$, říkáme, že $f(x)$ má \textbf{stupeň} k, píšeme deg f = k. Nulový polynom nemá stupeň, polynomy stupně nula jsou právě nenulové prvky v $R$, kterým říkáme konstantní polynomy.
+
+      \item Polynomy f(x) a g(x) jsou stejné, jestliže mají stejné koeficienty. Množinu všech polynomů nad okruhem $R$ budeme značit $R[x]$.\\Každý polynom zadává zobrazení (\textbf{polynomiální funkci}) $f:R\rightarrow R$, jehož hodnota vznikne dosazením hodnoty c za nezávislou proměnnou x, tj. $f(x)=a_0+a_1c+\cdots+a_kc^k$.
+
+      \item \textbf{Kořen polynomu} $f(x)$ je takový prvek $c\in R$, pro který je $f(x) = 0\in R$.
+
+      \item Jestliže je R nekonečný okruh, pak dva polynomy f(x) a g(x) nad R jsou stejné právě když jsou stejná příslušná zobrazení f a g.
+
+      \item Okruh polynomů nad oborem integrity je opět obor integrity.
+      
+			\item Věta o dělení se zbytkem\\
+				V oboru integrity R máme polynomy $f, g \in R[x] $ kde $g \neq 0$. Pak $\exists a \in R, a \neq 0$ a polynomy $q, r$ splňující $af=qg+r$, kde r = 0 nebo $deg~r < deg~g$ \\Je-li navíc R těleso nebo je $LC(g)  = 1$ pak lze volit $a=1$ a polynomy $q,r$ jsou určeny jednoznačně.\\Důkaz indukcí podle stupně $f$
+			
+			\item Kořeny a rozklady polynomů\\
+				$b \in R je kořen polynomu f \Leftrightarrow (x-b)|f$\\
+				Důsledky:
+				\begin{enumerate}
+				 	\item Každý nenulový polynom $f$ nad oborem integrity R má nejvýše $deg~f$ kořenů.\\
+					\item Polynomy nad nekonečným oborem integrity zadávají stejná zobrazení $R \rightarrow R$ právě, když jde o stejné polynomy
+					\item Libovolná konečná podgrupa multiplikativní grupy $(K^{\times},\cdot)$ tělesa $(K,+,\cdot)$ je cyklická. Speciálně existuje prvek $g \in \mathbb{Z}^{\times}_{p}$
+				\end{enumerate}
+				\item \textbf{Násobné kořeny:} pro $k \geq 1 \land (x-b)^k|f \land (x-b)^{k+1} \nmid f$  (k je maximální)\\
+					Je li $\alpha$ kořenem násobnosti $k >1$, je $\alpha$ kořenem $f'$ s násobností $k-1$\\
+					Násobné kořeny jsou kořeny $(f,f')$.\\ Všechny kořeny polynomu jsou jednoduché kořeny $\frac{f}{(f,f')}$
+				\item \textbf{GCD polynomů}\\
+					Pro $h=GCD(f,g)$ platí $h \mid d \land h \mid g$ a jestliže $k \mid f \land k \mid g \Rightarrow k \mid h$
+					Těleso $R$ a $f,g \in R[x] \Rightarrow \exists h=GCD(f,g)$. Navíc je určený jednoznačně až na násobek nenulovým skalárem. a existují polynomy $A, B \in R[x]$, takové, že $h=Af+Bg$
+				\item \textbf{Jednoznačnost rozkladu}\\
+					Je-li R obor integrity s jednoznačným rozkladem, pak i okruh polynomů $R[x]$ je obor integrity s jednoznačným rozkladem
+				\item \textbf{Základní věta algebry}\\
+					Těleso $\mathbb{C}$ je tzv. lagebraicky uzavřené. To znamená, že každý nekonstantní polynom má v $\mathbb{C}$ kořen.
+				\item \textbf{Gaussovo lemma}\\
+					Polynom $f \in \mathbb{Z}[x]$ nazveme primitivní, jsou-li jeho koeficienty nesoudělné.\\
+					Součin primitivních polynomů je primitivní\\
+					Je-li primitivní polynom $f \in \mathbb{Z}[x]$ ireducibilní  nad $\mathbb{Z}$, pak je ireducibilní jakožto polynom nad $\mathbb{Q}$
+				\item Má-li polynom $f(x) = a_nx^n+\cdots+a_0 \in \mathbb{Z}[x]$ racionální kořen $\frac{r}{s} \in \mathbb{Q}$ v základním tvaru, pak $r \mid a_0 \land s \mid a_n$
+				\item \textbf{Eisensteinovo kritérium ireducibility}\\
+					Je-li $f(x) = a_nx^n+\cdots+a_1x+a_0 \in \mathbb{Z}[x]$, přičemž:\\
+					$p \mid a_0, \dots, p \mid a_{n-1},p \nmid a_n$\\
+					$p^2 \nmid a_0$\\
+					Pak je $f$ ireducibilní nad $\mathbb{Z}$ (a tedy i nad $\mathbb{Q}$)
+				\item \textbf{Polynomy více proměnných}\\
+					Je-li $R$ obor integrity s jednoznačným rozkladem. pak také okruh polynomů $R[x_1,\dots,x_r]$ je obor integrity s jednoznačným rozkladem.
+				\item \textbf{Symetrické polynomy}\\
+					Polynom $f \in R[x_1,\dots,x_n]$, který se nezmění při libovolné permutaci proměnných $x_1,\dots,x_n$, se nazývá \textit{symetrický polynom}.\\ \textit{Elementárními symetrickými polynomy} rozumíme polynomy\\
+					\[s-1 = x_1 + x_2 + \dots + x_n  \]\[  s_2 = x_1x_2 + x_1x_3 + \dots + x_{n-1}x_n\] \[\vdots\]\[s_n=x_1\dots x_n\]
+					Libovolný symetrický polynom lze vyjádřit jako polynom v proměnných $s_1,\dots,s_n$
+				\item \textbf{Multiindex}\\
+					Multiindex $\alpha$ délky $r$ je  $r-tice$ nezáporných celých čísel $(\alpha_1,\dots,\alpha_r)$.\\ Celé číslo $|\alpha| = \alpha_1+\dots+\alpha_r$ nazýváme \textbf{velikost multiindexu}.\\Místo $x_1^{\alpha_1}x_2^{\alpha_2} \dots x_r^{\alpha_r}$ píšeme $x^\alpha$
+			
 		\item Nechť R je okruh skalárů. \textbf{Formální mocninou řadou} nad R rozumíme (obecně nekonečný) formální výraz $f(x) = \sum_{i=0}^{\infty}a_ix^i$, kde $a_i \in R, i=0,1,\cdots,$jsou tzv. koeficienty řady.
 		
 		\item \textbf{Okruhy polynomů} v proměnných $x_1,\cdots,x_r$ definujeme induktivně vztahem 
