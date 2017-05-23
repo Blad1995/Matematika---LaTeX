@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[unicode,colorlinks=true]{hyperref}
-\usepackage[czech]{babel}
+%\usepackage[czech]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -446,6 +446,106 @@
 		Jsou-li $A, B \lhd G$ normální podgrupy splňující $A \leq B$, pak $B/A \lhd G/A$ a platí $(G/A)/(B/A) \cong G/B$.
 		
 		
+		\item \textbf{Levé a pravé třídy rozkladu} \\
+		Celá grupa G se rozpadá na tzv. \textbf{levé třídy rozkladu} podle podgrupy H vzájemně ekvivalenstních prvků.  Pro třídy příslušející prvku (značíme a $\cdot H$) platí: $a \cdot H = \{a \cdot h; h \in H\}$. G/H - množina všech levých tříd rozkladu podle podgrupy H
+		Obdobně definujeme $H \cdot a$ jako pravou třídu rozkladu, $H \backslash G = \{H \cdot a; a \in G\}$.
+		
+		\begin{enumerate}
+			\item Levé a pravé třídy rozkladu podle podgrupy H $\leq$ G plývají právě tehdy, když pro každé $a \in G, h \in H$ platí $a \cdot h \cdot a^{-1} \in H$.
+			\item Všechny třídy (levé i pravé) mají shodnou mohutnost jako podgrupa H.
+			\item Zobrazení $a \cdot H \mapsto H \cdot a^{-1}$ zadává bijekci mezi levými a pravými třídami rozkladu G podle H.
+		\end{enumerate}
+	
+	\item \textbf{Pogrupy}
+		Nechť G je konečná grupa s n prvky (G je řádu n), H její \textbf{podgrupa}.
+		\begin{enumerate}
+			\item Mohhutnost n = |G| je součinem mohutnosti H a mohutnosti G/H. |G| = |G/H|.|H|.
+			\item Přirozené číslo |H| je dělitelem čísla n.
+			\item Je-li a $\in$ G prvek řádu k, pak k dělí n.
+			\item Pro každé a $\in$ G je $a^n = e$.
+			\item Je-li mohuntost grupy G prvočíslo p, pak je G izomorfní cyklické grupě $\mathbb{Z}_p$. 
+		\end{enumerate}
+	
+		\textbf{Podgrupa H je normální} právě tehdy, když pro každé $a \in G$ ptatí $a\cdot H = H\cdot a$ (levý rozklad G podle podgrupy H je shodný s pravým rozkladem).
+		\begin{enumerate}
+			\item 1 $\lhd$ G, G $\lhd$ G
+			\item V komutativní grupě je každá podgrupa normální.
+			\item Je-li H podgrupa konečné grupy G, kde $|H|=|G|/2$, pak je H normální.
+		\end{enumerate}
+	
+	\item \textbf{Hlavní věta konečných komutativních grup}
+		Je-li G konečná komutativní grupa, pak platí: $G\cong \mathbb{Z}_{n1} \times \mathbb{Z}_{n1}\cdots\times\mathbb{Z}_{nk}$, pro vhodná $n_1,\cdots,n_k\in\mathbb{N}\backslash\{1\}$ splňující $n_{i+1}|n_i$ pro $1 \leq i \leq k-1$. Tento rozklad je přitom jednoznačný.
+		\begin{enumerate}
+			\item Každé provočíslo p, dělící řád grupy G, dělí $n_1$.
+			\item Je-li n součinem různých prvočísel, pak jedinou cyklickou komutativní grupou řádu n je (až na isomorfismus) cyklická grupa $\mathbb{Z}_n$.
+		\end{enumerate}
+		
+		\textbf{Cauchyho věta} \\
+		Je-li konečná grupa G řádu dělitelného prvočíslem p, pak obsahuje prvek řádu p.\\ \\
+		\textbf{Sylowova věta} \\
+		Konečná grupa G řádu p$^\alpha$m (p je prvočíslo, p $\nmid$ m) má vždy podgrupu řádu p$^\alpha$. Pro počet n$_p$ takových podgrup platí n$_p \equiv 1 (mod p)$ a n$_p$ | m. 
+		
+	\item \textbf{Jordan-Hölderova věta a kompoziční řada} \\
+	Posloupnost podgrup grupy G $\{e\} = N_0 \leq N_1 \leq \cdots \leq N_k = G$ se nazývá kompoziční řada, pokud $N_i \lhd N_{i+1} a N_{i1+}/N_i$ je prostá.  \\Konečná grupa má vždy kompoziční řadu, která je jednoznačně určená až na izomorfismus faktorů (tj. počet členů dvou takových řad je stejný a příslušné faktorgrupy jsou izomorfní).
+	
+	\item \textbf{Věty o izomorfismu} \\
+	Pro libovolný homomorfismus grup f : G $\rightarrow$ K je dobře definován také homomorfismus $\tilde{f} : G/ker f \rightarrow K, \tilde{f}(a \cdot ker f) = f(a)$, který je injektivní. Zejména dostáváme $G/ker f \cong$ f(G). \\
+	
+	Nechť A, B $\leq$ G jsou podgrupy splňující $A \leq N_G(B)$. Pak (A $\cap$ B) $\lhd$ A a platí AB/B $\cong$ A/(A $\cup$ B). \\
+	
+	Jsou-li $A, B\ \lhd \ G$ normální podgrupy splňující $A \leq B$, pak $B/A \lhd G/A$ a platí $(G/A)/(B/A) \cong G/B$. \\
+	
+	Nechť je $N \ \lhd\ G$. Pak ewistuje bijekce mezi množinou podgrup A obsahujících N a množinou podgrup A/N. Navíc normálním podgrupám odpovídají normální podgrupy.
+	
+	\item \textbf{Akce grupy}
+	
+	\begin{enumerate}
+		\item \textbf{Levá akce grupy} G na množině X je homomorfismus grupy G do podgrupy invertibilních prvků v podgrupě X$^X$ všech zobrazení X $\rightarrow$ X, které splňuje 
+		\begin{align*}
+		\varphi(a\cdot b,x) = \varphi(a,\varphi(b,x)).\	\ \ \ \	(a\cdot b)\cdot x = a\cdot (b\cdot x)
+		\end{align*} 
+		
+		\item Obraz prvku x $\in$ X v akci celé grupy G nazýváme \textbf{orbita} X$_X$ prvku x, tj.
+		\begin{align*}
+		X_X = \{y = \varphi(a,x); a\in G\}.
+		\end{align*} 
+		
+		\item Pro každý bod x$\in$X definujeme \textbf{izotropní podgrupu} (též stabilizátor) $G_X \subseteq G$ akce $\varphi$:
+		\begin{align*}
+		G_X = \{a \in G;\ \varphi(a,x) =x\}.
+		\end{align*}
+		\item 
+		Jestliže pro každé dva prvky x, y $\in$ X existuje a $\in$ G tak, že $\varphi$(a,x) = y, pak říkáme, že akce $\varphi$ je \textbf{tranzitivní}. \\
+		např. Přirozenou akci na množině levých tříd G/H pro jakoukoliv podgrupu H definujeme vztahem $g\cdot (aH) = (ga) H$.
+		
+		\item Pro každou akci koknečné grupy G na konečné množině X platí:
+		\begin{enumerate}
+			\item pro každý prvek x $\in$ X je $|G| = |G_X|\cdot |X_X|$,
+			\item (Burnsideovo lemma) je-li N počet orbit akce G na X, pak $|G| = \frac{1}{N}\sum_{g\in G}|X^g|$, kde $X^g = \{x \in X; g\cdot x = x\}$ označujeme množinu pevných bodů akce prvku g.
+		\end{enumerate}
+	\end{enumerate}
+
+	\item \textbf{Okruhy a tělesa}
+	\begin{enumerate}
+		\item Komutativní grupa (R,+) s neutrálním prvkem 0 $\in$ R, spolu s další operací $\cdot$ splňující
+		 \begin{enumerate}
+		 	\item (a $\cdot$ b) $\cdot$ c = a $\cdot$ (b $\cdot$ c), pro všchna a, b, c $\in$ R (asociativita)
+		 	\item a $\cdot$ b = b $\cdot$ a pro všechna a, b $\in$ R (komutativita)
+		 	\item existuje prvek 1 takový, že pro všechny a $\in$ R platí 1 $\cdot$ a = a (existence jedničky)
+		 	\item a $\cdot$ (b + c) = a $\cdot$ b + a $\cdot$ c, pro všechny a, b, c $\in$ R (distributivita)
+		 \end{enumerate}
+	 	se nazývá \textbf{komutativní okruh}. Takový okruh zapisujeme (R, +,$\cdot$).
+	 	
+	 	\item Jestliže v komutativním okruhuh R platí c $\cdot$ d = 0 právě, když je alespoň jeden z prvků c a d nulový, pak okruh R nazýváme \textbf{oborem integrity}.
+	 	
+	 	\item Platí-li v oboru integrity $a=b\cdot c$ a $b\neq0$, pak $c$ je jednoznačně dáno volbou $a,b$.
+	\end{enumerate}
+	
+	
+	
+	
+	
+	
 		
 		
 	\end{enumerate}
