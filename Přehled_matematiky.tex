@@ -545,7 +545,7 @@
 \end{enumerate}
 	
 
-	\subsection{Polynomy}
+\section{Polynomy}
 	\begin{enumerate}
       \item Nechť $R$ je jakýkoliv komutativní okruh skalárů. Polynomem nad $R$ rozumíme konečný výraz
       \[f(x)=\sum_{i=0}^{k}a_ix^i\] kde $a_i \in R, i=0,1,\cdots,k$ jsou tzv. \textbf{koeficienty polynomu}. Je-li $a_k\neq0$, říkáme, že $f(x)$ má \textbf{stupeň} k, píšeme deg f = k. Nulový polynom nemá stupeň, polynomy stupně nula jsou právě nenulové prvky v $R$, kterým říkáme konstantní polynomy.
@@ -558,7 +558,9 @@
 
       \item Okruh polynomů nad oborem integrity je opět obor integrity.
       
+
       \item Nechť R je okruh skalárů. \textbf{Formální mocninou řadou} nad R rozumíme (obecně nekonečný) formální výraz $f(x) = \sum_{i=0}^{\infty}a_ix^i$, kde $a_i \in R, i=0,1,\cdots,$jsou tzv. koeficienty řady.
+
       
       \item \textbf{Okruhy polynomů} v proměnných $x_1,\cdots,x_r$ definujeme induktivně vztahem 
       \[R[x_1,\cdots,x_r]:=R[x_1,\cdots,x_{r-1}][x_r]\]. 
@@ -582,56 +584,84 @@
       \item Řekneme, že okruh R je \textbf{obor integrity s jednoznačným rozkladem}, jestliže platí:
       \begin{enumerate}
       	\item pro každý nenulový prvek $a\in R$, který není jednotkou, existují nerozložitelné $a_1,\cdots,a_r \in R$ takové, že $a=a_1\cdot a_2 \cdots a_r$
-      	\item jsou-li prvky $a_1,\cdots,a_r$ a $b_1,\cdots,b_s$ ireducibilní, nejsou mezi nimi žádné jednotky a platí-li $a_1a_2\cdots a_r=b_1b_2\cdots b_s$, pak je $r=s$ a ve vhodném přeuspořádání platí $a_j=e_jb_j$ pro vhodné jednotky $e_j$ (tj. tyto dva rozklady jsou stejné až na pořadí a asociovanost činitelů).  
+
+      \item jsou-li prvky $a_1,\cdots,a_r$ a $b_1,\cdots,b_s$ ireducibilní, nejsou mezi nimi žádné jednotky a platí-li $a_1a_2\cdots a_r=b_1b_2\cdots b_s$, pak je $r=s$ a ve vhodném přeuspořádání platí $a_j=e_jb_j$ pro vhodné jednotky $e_j$ (tj. tyto dva rozklady jsou stejné až na pořadí a asociovanost činitelů).  
+
       \end{enumerate}
       
 			\item Věta o dělení se zbytkem\\
 				V oboru integrity R máme polynomy $f, g \in R[x] $ kde $g \neq 0$. Pak $\exists a \in R, a \neq 0$ a polynomy $q, r$ splňující $af=qg+r$, kde r = 0 nebo $deg~r < deg~g$ \\Je-li navíc R těleso nebo je $LC(g)  = 1$ pak lze volit $a=1$ a polynomy $q,r$ jsou určeny jednoznačně.\\Důkaz indukcí podle stupně $f$
 			
-			\item Kořeny a rozklady polynomů\\
-				$b \in R je kořen polynomu f \Leftrightarrow (x-b)|f$\\
+			\item \textbf{Kořeny a rozklady polynomů}\\
+				$b \in R$ je kořen polynomu $f \Leftrightarrow (x-b)|f$\\
 				Důsledky:
 				\begin{enumerate}
 				 	\item Každý nenulový polynom $f$ nad oborem integrity R má nejvýše $deg~f$ kořenů.\\
 					\item Polynomy nad nekonečným oborem integrity zadávají stejná zobrazení $R \rightarrow R$ právě, když jde o stejné polynomy
 					\item Libovolná konečná podgrupa multiplikativní grupy $(K^{\times},\cdot)$ tělesa $(K,+,\cdot)$ je cyklická. Speciálně existuje prvek $g \in \mathbb{Z}^{\times}_{p}$
 				\end{enumerate}
-				\item \textbf{Násobné kořeny:} pro $k \geq 1 \land (x-b)^k|f \land (x-b)^{k+1} \nmid f$  (k je maximální)\\
+			\item \textbf{Násobné kořeny:} pro $k \geq 1 \land (x-b)^k|f \land (x-b)^{k+1} \nmid f$  (k je maximální)\\
 					Je li $\alpha$ kořenem násobnosti $k >1$, je $\alpha$ kořenem $f'$ s násobností $k-1$\\
 					Násobné kořeny jsou kořeny $(f,f')$.\\ Všechny kořeny polynomu jsou jednoduché kořeny $\frac{f}{(f,f')}$
-				\item \textbf{GCD polynomů}\\
+			\item \textbf{GCD polynomů}\\
 					Pro $h=GCD(f,g)$ platí $h \mid d \land h \mid g$ a jestliže $k \mid f \land k \mid g \Rightarrow k \mid h$
 					Těleso $R$ a $f,g \in R[x] \Rightarrow \exists h=GCD(f,g)$. Navíc je určený jednoznačně až na násobek nenulovým skalárem. a existují polynomy $A, B \in R[x]$, takové, že $h=Af+Bg$
-				\item \textbf{Jednoznačnost rozkladu}\\
+			\item \textbf{Jednoznačnost rozkladu}\\
 					Je-li R obor integrity s jednoznačným rozkladem, pak i okruh polynomů $R[x]$ je obor integrity s jednoznačným rozkladem
-				\item \textbf{Základní věta algebry}\\
+			\item \textbf{Základní věta algebry}\\
 					Těleso $\mathbb{C}$ je tzv. lagebraicky uzavřené. To znamená, že každý nekonstantní polynom má v $\mathbb{C}$ kořen.
-				\item \textbf{Gaussovo lemma}\\
+			\item \textbf{Gaussovo lemma}\\
 					Polynom $f \in \mathbb{Z}[x]$ nazveme primitivní, jsou-li jeho koeficienty nesoudělné.\\
 					Součin primitivních polynomů je primitivní\\
 					Je-li primitivní polynom $f \in \mathbb{Z}[x]$ ireducibilní  nad $\mathbb{Z}$, pak je ireducibilní jakožto polynom nad $\mathbb{Q}$
-				\item Má-li polynom $f(x) = a_nx^n+\cdots+a_0 \in \mathbb{Z}[x]$ racionální kořen $\frac{r}{s} \in \mathbb{Q}$ v základním tvaru, pak $r \mid a_0 \land s \mid a_n$
-				\item \textbf{Eisensteinovo kritérium ireducibility}\\
+			\item Má-li polynom $f(x) = a_nx^n+\cdots+a_0 \in \mathbb{Z}[x]$ racionální kořen $\frac{r}{s} \in \mathbb{Q}$ v 	základním tvaru, pak $r \mid a_0 \land s \mid a_n$
+			\item \textbf{Eisensteinovo kritérium ireducibility}\\
 					Je-li $f(x) = a_nx^n+\cdots+a_1x+a_0 \in \mathbb{Z}[x]$, přičemž:\\
 					$p \mid a_0, \dots, p \mid a_{n-1},p \nmid a_n$\\
 					$p^2 \nmid a_0$\\
 					Pak je $f$ ireducibilní nad $\mathbb{Z}$ (a tedy i nad $\mathbb{Q}$)
-				\item \textbf{Polynomy více proměnných}\\
+			\item \textbf{Polynomy více proměnných}\\
 					Je-li $R$ obor integrity s jednoznačným rozkladem. pak také okruh polynomů $R[x_1,\dots,x_r]$ je obor integrity s jednoznačným rozkladem.
-				\item \textbf{Symetrické polynomy}\\
+			\item \textbf{Symetrické polynomy}\\
 					Polynom $f \in R[x_1,\dots,x_n]$, který se nezmění při libovolné permutaci proměnných $x_1,\dots,x_n$, se nazývá \textit{symetrický polynom}.\\ \textit{Elementárními symetrickými polynomy} rozumíme polynomy\\
 					\[s-1 = x_1 + x_2 + \dots + x_n  \]\[  s_2 = x_1x_2 + x_1x_3 + \dots + x_{n-1}x_n\] \[\vdots\]\[s_n=x_1\dots x_n\]
 					Libovolný symetrický polynom lze vyjádřit jako polynom v proměnných $s_1,\dots,s_n$
-				\item \textbf{Multiindex}\\
+			\item \textbf{Multiindex}\\
 					Multiindex $\alpha$ délky $r$ je  $r-tice$ nezáporných celých čísel $(\alpha_1,\dots,\alpha_r)$.\\ Celé číslo $|\alpha| = \alpha_1+\dots+\alpha_r$ nazýváme \textbf{velikost multiindexu}.\\Místo $x_1^{\alpha_1}x_2^{\alpha_2} \dots x_r^{\alpha_r}$ píšeme $x^\alpha$
+					
+			\item \textbf{Vietovy/Newtonovy vztahy}\\
+					Vztahy mezi kořeny a koeficienty polynomu\\
+					$f(x) = x^n+a_{n-1}x^{n-1}+ \dots + a_1x + a_0 = (x-x_1)\cdot (x-x_2) \cdots (x-x_n)$
+					\[a_{n-1} = -(x_1+\dots +x_n)=-s_1\] \[a_{n-2} = x_1x_2+\dots+x_{n-1}x_n = s_2\] \[\vdots\] 
+					\[a_0 = (-1)^n \cdot x_1 \dots x_n = (-1)^n \cdot s_n\]
 			
+			\item \textbf{Podílové těleso}
+					Jsou to třídy ekvivalence dvojic $(a,b) \in R \times R, b \neq 0$ a je dána vztahem
+					\[\frac{a}{b}=\frac{a'}{b'} \Leftrightarrow ab' = a'b\]
+					Sčítání a násoben definujeme pomocí reprezentantů tříd
+					\[\frac{a}{b}+\frac{c}{d} = \frac{ad + bc}{bd}  \]
+					\[ \frac{a}{b}\frac{c}{d} = \frac{ac}{bd}\]
+					$\frac{0}{1}$ je neutrální prvek vzhledem ke sčítání, $\frac{1}{1}$ je neutrální vzhledem k násobení.\\
+					Pro $a \neq 0 \land b \neq 0$ platí $\frac{a}{b} \cdot \frac{b}{a} = \frac{1}{1}$	
+	\end{enumerate}
+
+	\subsection{Kódování}
+		Zpráva je tvořena prvky $\mathbb{Z}_2$ a přenášíme slovo o $k$ bitech. Přidáváme $n-k$ bitů pro $n > k$\\
+		Slov o $k$ bitech je $2^k$ a každé z nich určuje jedno \textbf{kódové slovo} z $2^n$ možných.\\
+		Máme tedy ještě $2^n-2^k = 2^k(2^{n-k}-1)$\\
+		Příklad: \textbf{kód kontrolující paritu}. Přidáním prvního bitu kontrolujeme dodržení sudého počet jedniček
+	\begin{enumerate}
+		\item \textbf{Hammingova vzdálenost} dvou slov je rovna počtu bitů, ve kterých se liší\\
+			Kód odhaluje $r$ a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $r+1$\\
+			Kód opravuje r a méně chyb právě, když je minimální Hammingova vzdálenost kódových slov právě $2r+1$
+			
+
 		
 		%--------------------------10 prezentace ----------------------
 		
 		\item Buď dáno nekonečná posloupnost $a=(a_0,a_1,a_2,\cdots)$.Její \textbf{vytvořující funkcí} rozumíme (formální) mocninnou řadu tvaru $\sum_{i=0}^{\infty}a_ix^i=a_0+a_1x+a_2x^2+\cdots$.
 		\vspace{4mm}
 		Buď $(a_0,a_1,a_2,\cdots)$ posloupnost reálných čísel. Platí-li pro nějaké $K \in \mathbb{R}$, že pro všechna n $\geq$ 1 je $|a_n|\leq K^n$, pak řada \[a(x)=\sum_{n\geq0}a_nx^n\] konverguje pro každé $x\in(-\frac{1}{K},\frac{1}{K})$. Součet této řady tedy definuje fuknci na uvedeném intervalu, tuto funkci označujeme rovněž $a(x)$. Hodnotami funkce a(x) na libovolném okolí 0 je jednoznačně určena původní posloupnost, neboť má a(x) v 0 derivace všech řádů a platí $a_n = \frac{a^{(n)}(0)}{n!}$
-		
 	\end{enumerate}
 	
 	
